@@ -1,0 +1,20 @@
+##-- dump CGI env
+/cgi-bin/env2.pli
+
+/home
+	valid-user
+
+/ce
+	valid-user
+
+/bsl
+	valid-user
+
+/admin
+	group @_appname01_portal_admins
+
+/beta
+	group mycompany
+
+/beta/admin
+	group @_appname01_portal_admins

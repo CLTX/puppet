@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- $Revision: 1.4 $ -->
+
+<config>
+
+<database>
+   <duplicate_check>1</duplicate_check>
+   <!-- Databases and Text files -->
+   <uniqid_db>uniqid.db</uniqid_db>
+   <uniqid_txt>uniqid.txt</uniqid_txt>
+   <uniqs_db>uniqs.db</uniqs_db>
+</database>
+
+<template>
+   <!-- Default templates -->
+   <html>mess.htm</html>
+   <text>mess.txt</text>
+</template>
+
+<!-- Audio Pilot 2548mt -->
+<appname05>
+   <project_num>02C</project_num>
+   <appname05>2548mt</appname05>
+   <appname05_dir>2500/2548mt</appname05_dir>
+   <!-- LOG file name -->
+   <log>accept-2548mt.log</log>
+   <letter>u</letter>
+   <id_len>0</id_len>
+   <pass_len>6</pass_len>
+   <page>2548mtc-page2.xml</page>
+   <type>email</type>
+   <tmplext>.tmpl</tmplext>
+   <htmlext>.html</htmlext>
+   <!-- Data Delimiter -->
+   <delim>|</delim>
+</appname05>
+
+<!-- Self Assessment 2552mt -->
+<appname05>
+   <project_num>02D</project_num>
+   <appname05>2552mt</appname05>
+   <appname05_dir>2500/2552mt</appname05_dir>
+   <!-- LOG file name -->
+   <log>accept-2552mt-pop-up.log</log>
+   <letter>k</letter>
+   <id_len>0</id_len>
+   <pass_len>6</pass_len>
+   <page>2552mtk-page1.xml</page>
+   <type>email</type>
+   <tmplext>.tmpl</tmplext>
+   <htmlext>.html</htmlext>
+   <!-- Data Delimiter -->
+   <delim>|</delim>
+   <!-- List of GIFs to attach. -->
+   <!-- They must be in "appname05_dir" or -->
+   <!-- in  a subappname03ory of "appname05_dir" -->
+   <images>
+       <image1>blue_banner2.gif</image1>
+       <image2>blue_background.jpg</image2>
+       <image3>button.gif</image3>
+       <image4>hands.jpg</image4>
+   </images>
+</appname05>
+
+<!-- Microsoft Canada 2628ma -->
+<appname05>
+   <project_num>02L</project_num>
+   <appname05>2628ma</appname05>
+   <appname05_dir>2600/2628ma</appname05_dir>
+   <!-- LOG file name -->
+   <log>accept-2628ma1.log</log>
+   <letter>m</letter>
+   <id_len>0</id_len>
+   <pass_len>6</pass_len>
+   <page>2628mam-page1.xml</page>
+   <type>email</type>
+   <tmplext>.tmpl</tmplext>
+   <htmlext>.html</htmlext>
+   <!-- Data Delimiter -->
+   <delim>|</delim>
+</appname05>
+
+<!-- MSDN Online 2641mt -->
+<appname05>
+   <project_num>02K</project_num>
+   <appname05>2641mt</appname05>
+   <appname05_dir>2600/2641mt</appname05_dir>
+   <!-- LOG file name -->
+   <log>accept-2641mt.log</log>
+   <letter>n</letter>
+   <id_len>0</id_len>
+   <pass_len>6</pass_len>
+   <page>2641mtn-page1.xml</page>
+   <type>email</type>
+   <tmplext>.tmpl</tmplext>
+   <htmlext>.html</htmlext>
+   <!-- Data Delimiter -->
+   <delim>|</delim>
+   <!-- List of GIFs to attach. -->
+   <!-- They must be in "appname05_dir" or -->
+   <!-- in  a subappname03ory of "appname05_dir" -->
+   <images>
+       <image1>blue_banner2.gif</image1>
+       <image2>blue_background.jpg</image2>
+       <image3>button.gif</image3>
+       <image4>hands.jpg</image4>
+   </images>
+</appname05>
+
+<automail_config>
+
+   <appname05_id>1</appname05_id>
+   <method_id>1</method_id>
+   <logfile>2332mt.dat</logfile>
+   <text_template>mess.txt</text_template>
+   <html_template>mess.htm</html_template>
+   <subject>Microsoft Search appname05</subject>
+   <to_address>microsoftresearch@appname05site.com</to_address>
+   <from_address>microsoftresearch@appname05site.com</from_address>
+   <reply_address>appname05help-ms2332@appname05site.com</reply_address>
+   <bcc_address>ms2332@appname05site.com</bcc_address>
+   <min_delay>1800</min_delay>
+   <max_delay>7200</max_delay>
+   <min_threshold>20</min_threshold>
+   <max_threshold>200</max_threshold>
+   <email_to>1</email_to>
+   <email_parameter>email</email_parameter>
+   <min_delay_parameter></min_delay_parameter>
+   <active>1</active>
+   <!-- 90 days in secs -->
+   <duplicate_expire>7776000</duplicate_expire>
+   <!-- Project description -->
+   <description>MS Search Project 2332mt:</description>        
+
+</automail_config>
+
+</config>

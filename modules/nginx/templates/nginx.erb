@@ -1,0 +1,31 @@
+
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+	server_names_hash_bucket_size <%= scope.lookupvar('nginx::size') %>;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+	gzip on; 
+	gzip_http_version 1.1;
+	gzip_vary on;
+	gzip_comp_level 6;
+	gzip_proxied any;
+	gzip_types text/plain text/css application/json application/javascript application/x-javascript text/javascript text/xml application/xml application/rss+xml application/atom+xml application/rdf+xml;
+	gzip_buffers 16 8k;
+	gzip_disable “MSIE [1-6].(?!.*SV1)”;
+
+	server {
+	 listen 80;
+	 server_name _;
+	 rewrite ^ https://$host$request_uri? permanent;
+	}
+

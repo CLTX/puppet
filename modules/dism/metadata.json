@@ -1,0 +1,51 @@
+{
+  "checksums": {
+    "spec/spec_helper.rb": "661d6045a62b345630d46be613d65b90",
+    "spec/fixtures/site.pp": "d41d8cd98f00b204e9800998ecf8427e",
+    "README.md": "b897f59be15a5c3630b0a4255f7df5e2",
+    "Rakefile": "bc7767ba77c2a685258184dbe91d8dda",
+    "lib/puppet/type/dism.rb": "2b8e36ba3d83c19628e545cec55ddea9",
+    "spec/fixtures/dism_get_features": "0041d5fd618655cf4863975e83c868cd",
+    "Modulefile": "9fcbe4957a818c7c0303e60c059a7a22",
+    "lib/puppet/provider/dism/dism.rb": "1730d0f2061cfd83972132ea87996866"
+  },
+  "description": "Windows 2008/7 DISM features module.",
+  "license": "UNKNOWN",
+  "version": "0.1.0",
+  "source": "UNKNOWN",
+  "types": [
+    {
+      "properties": [
+        {
+          "doc": "Windows feature install state.  Valid values are `present` (also called `enabled`), `absent` (also called `disabled`), `present`, `absent`.",
+          "name": "ensure"
+        }
+      ],
+      "parameters": [
+        {
+          "doc": "The Windows feature name (case-sensitive).",
+          "name": "name"
+        },
+        {
+          "doc": "The answer file for installing the feature.",
+          "name": "answer"
+        }
+      ],
+      "doc": "Manages Windows features via dism.",
+      "name": "dism",
+      "providers": [
+        {
+          "doc": "Manages Windows features for Windows 2008R2 and Windows 7\n\nDefault for `operatingsystem` == `windows`.",
+          "name": "dism"
+        }
+      ]
+    }
+  ],
+  "name": "nanliu-dism",
+  "dependencies": [
+
+  ],
+  "project_page": "UNKNOWN",
+  "summary": "UNKNOWN",
+  "author": "nanliu"
+}

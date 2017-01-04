@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<Root Name="\\yourdomain\Backup" State="1" Timeout="300" Attributes="65600" >
+	<Target Server="pvusaTZS01" Folder="Backup" State="2" />
+	<Target Server="pvusaTZS02" Folder="Backup" State="2" />
+
+
+	<Link Name="Backed-Apps" State="1" Timeout="1800" >
+		<Target Server="pvusaTZS01" Folder="Backed-Apps" State="2" />
+		<Target Server="pvusaTZS02" Folder="Backed-Apps" State="2" />
+	</Link>
+
+</Root>
+
+

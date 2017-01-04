@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<Root Name="\\yourdomain\PDFS" State="1" Timeout="300" Attributes="64" >
+	<Target Server="pvusaPZS01" Folder="DDFS" State="2" />
+	<Target Server="pvusaPZS02" Folder="DDFS" State="2" />
+
+
+	<Link Name="Shares" State="1" Timeout="1800" >
+		<Target Server="pvusaPZS01" Folder="DDFS_Shares" State="2" />
+		<Target Server="pvusaPZS02" Folder="DDFS_Shares" State="2" />
+	</Link>
+
+</Root>
+
+

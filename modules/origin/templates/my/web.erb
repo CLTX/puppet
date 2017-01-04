@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appSettings>
+		<add key="AppCode" value="<%= scope.lookupvar('origin::my-config-with-authmodule::codeapp') %>"/>
+	</appSettings>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <rule name="RootReappname03" stopProcessing="true">
+                    <match url="^$" />
+                    <action type="Reappname03" url="/welcome/" reappname03Type="Found" />
+                </rule>
+				<rule name="LoginReappname03" stopProcessing="true">
+                    <match url="^login(/)?$" />
+                    <action type="Reappname03" url="https://auth.mycompany.com/login/" />
+                </rule>
+            </rules>
+        </rewrite>
+    </system.webServer>
+</configuration>

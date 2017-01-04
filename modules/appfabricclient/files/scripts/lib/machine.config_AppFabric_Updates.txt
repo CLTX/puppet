@@ -1,0 +1,22 @@
+
+<configSections>
+	<!-- place the following section in your configSections part of the machine.config -->
+	<section name="dataCacheClient" type="Microsoft.ApplicationServer.Caching.DataCacheClientSection, Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" allowLocation="true" allowDefinition="Everywhere"/>
+</configSections>
+
+<!--- put this at in the <configuration> at the top level.  I usually put it right under the </configSections> tag
+	Make sure to modify the <hosts> section to match the environment.
+	ppusaDCS01&2 are production
+	ppusaTST02 is Int/Tst
+	localhost is local -- you can use tst02, but preferably use local for development purposes. -->
+
+<dataCacheClient>
+	<localCache isEnabled="true" sync="TimeoutBased" objectCount="300000" ttlValue="86400"/>
+	<clientNotification pollInterval="300"/>
+	<hosts>
+		<host name="ppusadcs01" cachePort="22233"/>
+		<host name="ppusadcs02" cachePort="22233"/>
+	</hosts>
+	<securityProperties mode="None" protectionLevel="None"/>
+	<transportProperties maxBufferSize="1000000000"/>
+</dataCacheClient>

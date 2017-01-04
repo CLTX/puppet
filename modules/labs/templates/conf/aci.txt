@@ -1,0 +1,17 @@
+##-- dump CGI env
+#/cgi-bin/env2.pli
+
+/cgi-bin
+   group administrators data_delivery
+
+/mobile
+   group mycompany
+        
+/mob
+   valid-user
+
+/mycompanyInspector/Web
+   group mycompany
+
+/mycompanyInspector/Api/Secure
+   group mycompany

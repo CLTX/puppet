@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+
+<db>
+    <!-- name of the data store -->
+    <database>gud</database>
+
+    <!-- name of the host -->
+    <host>SSPRODDB01.appname05-poll.com</host>
+
+    <!-- timeout, sec -->
+    <timeout>10</timeout>
+
+    <!-- database user -->
+    <user>ss_engine</user>
+
+    <!-- database pass -->
+    <pass>engine1</pass>
+
+    <!-- AutoCommit flag -->
+    <autocommit>0</autocommit>
+
+    <!-- RaiseError flag -->
+    <raise_error>0</raise_error>
+    
+    <!-- Refresh interval, sec -->
+    <refresh>1</refresh>
+</db>
+
+</config>

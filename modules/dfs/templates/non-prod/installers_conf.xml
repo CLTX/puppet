@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<Root Name="\\yourdomain\Installers" State="1" Timeout="300" Attributes="64" >
+	<Target Server="pvusaTZS01" Folder="Installers" State="2" />
+	<Target Server="pvusaTZS02" Folder="Installers" State="2" />
+
+
+	<Link Name="Shared-Apps" State="1" Timeout="1800" >
+		<Target Server="pvusaTZS01" Folder="Shared-Apps" State="2" />
+		<Target Server="pvusaTZS02" Folder="Shared-Apps" State="2" />
+	</Link>
+
+</Root>
+
+

@@ -1,0 +1,2 @@
+CERTUTIL -v -addstore "root" "\\pvusatst02\installshares\AutomationScripts\Certificate\ps_signing_cert.cer"
+CERTUTIL -v -addstore "trustedpublisher" "\\pvusatst02\installshares\AutomationScripts\Certificate\ps_publisher_cert.cer"

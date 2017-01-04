@@ -1,0 +1,27 @@
+##-- dump CGI env
+#/cgi-bin/env2.pli
+
+/dc
+	valid-user
+/cgi-bin
+    group administrators data_delivery
+/dc/AddFile.aspx
+	group mycompany
+/dc/DeleteFile.aspx
+	group mycompany
+/dc/EditFile.aspx
+	group mycompany
+/dc/EditGroup.aspx
+	group mycompany
+/dc/ManageGroups.aspx
+	group mycompany
+/dc/ThrowExceptions.aspx
+	group mycompany
+/dc/VerifyFilelists.aspx
+	group mycompany
+
+/dc/Admin
+	group mycompany
+	
+/slice
+	valid-user

@@ -1,0 +1,100 @@
+define host{
+       	use    		      	windows-server  ; Inherit default values from a template
+       	host_name 		    <%= @hostname%>    ; The name we're giving to this host
+       	alias  			      <%= @fqdn%> ; A longer name associated with the host
+       	address 		      <%= @getip%> ; IP address of the host
+       	hostgroups    		<%= machine_app%>
+       	contacts     		  <%= scope.lookupvar('nagios_devops::setup::pagerduty_contact') %>, <%= scope.lookupvar('nagios_devops::setup::contactgroup') %>  
+      	}
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     NSC DevOps Client
+        servicegroups           Nagios
+        contacts                DevOps
+	      check_command           check_nt!SERVICESTATE!-d SHOWALL -l nsc-devops
+        }
+
+define service{
+       	use                			generic-service
+       	host_name 		          <%= @hostname%>
+       	service_description 	  CPU Load
+       	servicegroups  		      CPU
+       	contacts                <%= scope.lookupvar('nagios_devops::setup::contactgroup') %>
+        check_command  		      check_nt!CPULOAD!-l 20,90,100
+      	}
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Puppet Agent Enabled
+        servicegroups           Puppet
+        notification_interval   86400
+        contacts                DevOps
+        check_command           check_puppet_nagios!
+        }
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%>
+       	service_description 	  Check Memory
+       	servicegroups  		      Memory
+       	check_command  		      check_nrpe!check_mem!--free-crit-percent=2%
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Node 
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--node=<%= @hostname%>!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Quorum Disk 
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=\"Cluster\ Disk\ 1\"!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Resource Disk 3
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=\"Cluster\ Disk\ 3\"!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Resource Disk 4
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=\"Cluster\ Disk\ 4\"!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Resource Disk 5
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=\"Cluster\ Disk\ 5\"!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Resource MSDTC-pvusaPSC04
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=pvusaPSC04!
+       	}
+
+define service{
+       	use   			            generic-service
+       	host_name 		          <%= @hostname%> 
+       	service_description 	  Check Resource SQLServer
+       	servicegroups  		      Cluster
+       	check_command  		      check_nrpe!check_cluster!--resource=\"SQL\ Server\"!
+       	}

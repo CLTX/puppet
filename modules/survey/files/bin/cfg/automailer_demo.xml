@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- $Revision: $ -->
+
+<config>
+
+<database>
+   <duplicate_check>0</duplicate_check>
+   <!-- Databases and Text files -->
+   <uniqid_db>uniqid.db</uniqid_db>
+   <uniqid_txt>uniqid.txt</uniqid_txt>
+   <uniqs_db>uniqs.db</uniqs_db>
+</database>
+
+<template>
+   <!-- Default templates -->
+   <html>mess.htm</html>
+   <text>mess.txt</text>
+</template>
+
+<!-- DEMO 9001xy -->
+<appname05>
+   <project_num>030</project_num>
+   <appname05>9001xy</appname05>
+   <appname05_dir>9000/9001xy</appname05_dir>
+   <!-- LOG file name -->
+   <log>accept-demo.log</log>
+   <letter>z</letter>
+   <id_len>0</id_len>
+   <pass_len>6</pass_len>
+   <page>demo_appname05-1.xml</page>
+   <type>email</type>
+   <tmplext>.tmpl</tmplext>
+   <htmlext>.html</htmlext>
+   <!-- Data Delimiter -->
+   <delim>|</delim>
+   <!-- List of GIFs to attach. -->
+   <!-- They must be in "appname05_dir" or -->
+   <!-- in  a subappname03ory of "appname05_dir" -->
+   <images>
+       <image1>blue_banner2.gif</image1>
+       <image2>blue_background.jpg</image2>
+       <image3>button.gif</image3>
+       <image4>hands.jpg</image4>
+   </images>
+</appname05>
+
+</config>

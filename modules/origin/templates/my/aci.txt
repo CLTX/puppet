@@ -1,0 +1,25 @@
+##-- dump CGI env
+#/cgi-bin/env2.pli
+
+/pm
+	valid-user
+
+/cgi-bin
+    group administrators data_delivery
+
+/ResponseRate
+	valid-user
+
+/PMXF
+	valid-user
+
+/slice
+	valid-user
+
+/welcome
+	valid-user
+
+/autologin
+  valid-user
+
+

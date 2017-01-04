@@ -1,0 +1,45 @@
+## IMPORTANT! PLEASE READ!
+## Make sure that there are NO trailing slashes (/) on the end of your
+## path name, as this will cause weird security errors that are very 
+## hard to track back here.  You've been warned.
+##
+
+##-- dump CGI env
+
+/cgi-bin/env.pli
+    group administrators data_delivery
+/cpm
+    group mycompany
+/snapshot
+    group mycompany
+/troubleshoot
+    group mycompany
+/24HourFilterCheckUtility/Public
+
+/24HourFilterCheckUtility
+    group mycompany
+
+/24HourFilterBypassUtility
+    group mycompany
+
+/TraceReports
+    group mycompany
+
+/IncentiveManager
+    group mycompany
+
+/appname05Alerts
+    group mycompany
+
+/sitecodemapper
+    group mycompany
+/cpm2
+    group mycompany
+/bmx
+    group mycompany
+/dst
+    group mycompany
+/dst2
+    group mycompany
+/s2emgt
+    group mycompany

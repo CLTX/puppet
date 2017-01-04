@@ -1,0 +1,10 @@
+<apiSQL>
+  <dbtype>mssql</dbtype>
+  <connect>dbi:ODBC:SSPRODDB01</connect>
+  <username>ss_engine</username>
+  <password>engine1</password>
+  <procedure>0</procedure>
+  <force>0</force>
+  <loadlogparam>1</loadlogparam>
+  <automailer>1</automailer>
+</apiSQL>

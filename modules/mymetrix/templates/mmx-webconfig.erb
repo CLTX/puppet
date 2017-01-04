@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appSettings>
+		<add key="AppCode" value="mmx" />
+	</appSettings>
+    <system.web>
+        <identity impersonate="false" />
+    </system.web>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <rule name="RootReappname03" stopProcessing="true">
+                    <match url="^$" />
+                    <action type="Reappname03" url="app/" reappname03Type="Found" />
+                </rule>
+            </rules>
+        </rewrite>
+		<httpProtocol allowKeepAlive="true" />
+    </system.webServer>
+</configuration>

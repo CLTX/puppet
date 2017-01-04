@@ -1,0 +1,74 @@
+##===== common appname03ives =====##
+
+BigIPCookieName <NA>
+BigIPCookieValue <NA>
+BigIPCookieValue <NA>
+CSSRoot D:\mycompany\webpub\<%= scope.lookupvar('login::setup::nameSite') %>\
+GroupTag cssgroups:
+PwdTag password:
+LoginTag login:
+
+LoginURL https://<%= @isapi_login_url %>/login/
+SharedHTM wwwroot\shared
+
+ReferingCookieName CSREFERER
+SessionsDir <%= @sessiondir %>\
+SIDCookieName <%= @sidcookiename %>
+UserTag cssuser:
+WWWSite mycompany
+
+LandingPageUrl <%= landingpageurl %>
+LOGIN_LOGS_CONNECTION_STRING Provider=SQLOLEDB;Data Source=<%= scope.lookupvar('login::setup::cssdbconnection') %>;Initial Catalog=LoginLogs;Integrated Security=SSPI
+NS_SUBSCRIPTION_CONNECTION_STRING Provider=SQLOLEDB;Data Source=<%= scope.lookupvar('login::setup::cssdbconnection') %>;Initial Catalog=ns_subscription;Integrated Security=SSPI
+
+##===== plugin specific appname03ives =====##
+
+ACCFile conf\aci.txt
+BadHeaders HTTP_CSSAUTHTIME HTTP_CSSDN HTTP_CSSGROUPS HTTP_CSSUSER
+DefDomain .mycompany.com
+DefServerName <%= scope.lookupvar('login::config::defservername') %>
+SessionTableSize 200
+SessionTimeout 0
+SSLOkay /images /login /logout /scripts /OAuthLogin /welcome /myplatform
+DomainIP <%= @getip %>,127.0.0.1
+BasicAuthPassThrough /OAuthLogin /mydomainlink
+#AssignBigIPCookieIfHasSession 0
+
+##===== login script specific appname03ives =====##
+RegistrationUrl scripts/register.asp
+PasswordExpiryUrl https://my.mycompany.com/accounts/pwdexpired.aspx
+ADMigrationExpiryUrl https://my.mycompany.com/accounts/pwdexpired.aspx
+Reappname03Hash c0msc0r3
+
+AttemptsDir d:\mycompany\css-sessions\attempts
+LDAPHost localhost:2389
+LDAPOrgName o=mycompany,c=us
+MaxNestedGroups 5
+SessionsShares \\<%= @isapi_session_shares %>\sessions
+SuspendTime 1800
+SuspendTries 10
+
+ClientPwd c0msc0r3
+
+ClientDomain clients
+mydomainDomain yourcompany
+
+ADclientID CLIENTS\csaccountop
+ADclientPWD c0msc0r3
+ADclientdomain clients.mycompany.com
+ADclientpath DC=clients,DC=mycompany,DC=com
+ADclientOpsMaster ppusacli01
+ADclientMaxLoginAttempts 25
+ADclientBadLoginAttemptFactor 4
+WarnOnClientLoginAttemptsRemaining 2
+
+ADmydomainID yourcompany\csdirsearch
+ADmydomainPWD c0msc0r3
+ADmydomaindomain mydomain.mycompany.com
+ADmydomainpath DC=mydomain,DC=mycompany,DC=com
+ADmydomainOpsMaster mydomain.mycompany.com
+ADmydomainMaxLoginAttempts 5
+ADmydomainBadLoginAttemptFactor 2
+WarnOnmydomainLoginAttemptsRemaining 1
+
+

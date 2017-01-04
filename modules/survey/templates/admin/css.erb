@@ -1,0 +1,58 @@
+##===== common appname03ives =====##
+
+BigIPCookieName <NA>
+BigIPCookieValue <NA>
+CSSRoot D:\mycompany\webpub\<%= scope.lookupvar('appname05::adminconfig::nameSite') %>\
+GroupTag cssgroups:
+PwdTag password:
+LoginTag login:
+
+LoginURL https://<%= @isapi_login_url %>/login/
+ReferingCookieName CSREFERER
+SessionsDir <%= @sessiondir %>\
+SIDCookieName <%= @sidcookiename %>
+SharedHTM ..\login\shared
+UserTag cssuser:
+WWWSite mycompany
+
+##===== plugin specific appname03ives =====##
+
+ACCFile conf\aci.txt
+BadHeaders HTTP_CSSAUTHTIME HTTP_CSSDN HTTP_CSSGROUPS HTTP_CSSUSER
+DefDomain .mycompany.com
+DefServerName <%= scope.lookupvar('appname05::adminconfig::defservername') %>
+SessionTableSize 200
+SessionTimeout 0
+SSLOkay /images /login
+DomainIP <%= scope.lookupvar('appname05::adminconfig::ip_ch') %>,127.0.0.1,<%= scope.lookupvar('appname05::adminconfig::ip_from_hiera') %>
+BasicAuthPassThrough 
+AssignBigIPCookieIfHasSession 1
+AssignBigIPCookieDirs
+
+##===== login script specific appname03ives =====##
+
+AttemptsDir D:\mycompany\css-sessions\attempts
+MaxNestedGroups 5
+SessionsShares \\yourdomain.mycompany.com\TDFS\Shares\team01\SSO\sessions 
+SuspendTime 1800
+SuspendTries 7
+ADID CLIENTS\csaccounttop
+ADPWD c0msc0r3
+ClientPwd c0msc0r3
+ADclientdomain clients.mycompany.com
+ADmydomaindomain mydomain.mycompany.com
+ADclientpath DC=clients,DC=mycompany,DC=com
+ADmydomainpath DC=mydomain,DC=mycompany,DC=com
+ClientDomain clients
+mydomainDomain yourcompany
+
+ADclientOpsMaster ppusacli01
+ADclientMaxLoginAttempts 25
+ADclientBadLoginAttemptFactor 4
+ADmydomainOpsMaster ppusadc01
+ADmydomainMaxLoginAttempts 5
+ADmydomainBadLoginAttemptFactor 2
+WarnOnClientLoginAttemptsRemaining 2
+WarnOnmydomainLoginAttemptsRemaining 1
+
+

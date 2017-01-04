@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<Root Name="\\yourdomain\SDFS" State="1" Timeout="300" Attributes="64" >
+	<Target Server="pvusaTZS01" Folder="SDFS" State="2" />
+	<Target Server="pvusaTZS02" Folder="SDFS" State="2" />
+
+
+	<Link Name="Shares" State="1" Timeout="1800" >
+		<Target Server="pvusaTZS01" Folder="SDFS_Shares" State="2" />
+		<Target Server="pvusaTZS02" Folder="SDFS_Shares" State="2" />
+	</Link>
+
+</Root>
+
+

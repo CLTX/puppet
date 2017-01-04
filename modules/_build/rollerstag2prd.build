@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+
+  <PropertyGroup>
+	<SourceEnv>stage</SourceEnv>
+	<DestEnv>production</DestEnv>
+    <SubversionPath>C:\Program Files\CollabNet\Subversion Client</SubversionPath>
+    <SvnUsername>cssuser</SvnUsername>
+    <SvnPassword>c0msc0r3</SvnPassword>
+	<SvnSourceURL>http://csilsvn.mydomain.mycompany.com/svn/repos/il/dae/mycompany.Automation/trunk/puppet/$(SourceEnv)/modules/</SvnSourceURL>
+	<SvnDestURL>../</SvnDestURL>
+  </PropertyGroup>
+  
+  <Target Name="Merge">
+    <Message Text="Merging $(SourceEnv) into $(DestEnv)..."/>
+    <SvnClient Command="merge $(SvnSourceURL) $(SvnDestURL) --non-interactive" Username="$(SvnUsername)" Password="$(SvnPassword)" ToolPath="$(SubversionPath)" />
+  </Target>
+  
+  <Target Name="Commit" DependsOnTargets="Merge">
+    <Message Text="Committing $(SourceEnv) into $(DestEnv)..."/>
+    <SvnClient Command="commit -m %22Jenkins Commit%22 $(SvnDestURL) --non-interactive" Username="$(SvnUsername)" Password="$(SvnPassword)" ToolPath="$(SubversionPath)" />
+  </Target>
+
+</Project>

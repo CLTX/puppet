@@ -1,0 +1,11 @@
+<service>
+ <id>Nginx</id>
+ <name>NGINX</name>
+ <description>Nginx Wrapper</description>
+ <executable>D:\Nginx\nginx.exe</executable>
+ <logpath>D:\Nginx\wrapper</logpath>
+ <logmode>roll</logmode>
+ <depend></depend>
+ <startargument>-p D:\Nginx</startargument>
+ <stopargument>-p D:\Nginx -s stop</stopargument>
+</service>

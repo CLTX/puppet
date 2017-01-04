@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+
+<db>
+    <!-- name of the data store -->
+    <database>appname05_dat.db</database>
+
+    <!-- name of the Next ID database -->
+    <next_id>next_id.db</next_id>
+
+    <!-- database location relative tio the calling script -->
+    <location>../bdb/db/dat</location>
+
+    <!-- use transactions -->
+    <txn>0</txn>
+
+    <!-- use transactions with DB_TXN_NOSYNC to speed it up -->
+    <nosync>1</nosync>
+
+    <!-- retry transactions up to this number of times before giving up -->
+    <retry>10</retry>
+
+    <!-- use cache -->
+    <cache>1</cache>
+    
+    <!-- To achive the fastest operation, set txn=0 and cache=1 -->
+</db>
+
+</config>

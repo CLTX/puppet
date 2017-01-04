@@ -1,0 +1,63 @@
+define host{
+        use             	windows-server-dev  ; Inherit default values from a template
+        host_name       	<%= hostname%>    ; The name we're giving to this host
+        alias           	<%= @fqdn%>       ; A longer name associated with the host
+        address         	<%= @getip%>     ; IP address of the host
+        hostgroups   		<%= machine_app%>
+        contacts  		appname05tech-list
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     NSC DevOps Client
+        servicegroups           Nagios
+        contacts                DevOps
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l nsc-devops
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     CPU Load
+        servicegroups           CPU
+        notification_interval   86400
+        check_command           check_nt!CPULOAD!-l 20,90,100
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Puppet Agent Enabled
+        servicegroups           Puppet
+        notification_interval   86400
+        contacts                DevOps
+        check_command           check_puppet_nagios!
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Confirmit BitStream Service
+        servicegroups           Confirmit
+        notification_interval   86400
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l "Confirmit BitStream Service"
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Confirmit Task System
+        servicegroups           Confirmit
+        notification_interval   86400
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l "Confirmit Task System"
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     SMTP Service
+        servicegroups           SMTP
+        notification_interval   86400
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l SMTPSVC
+        }

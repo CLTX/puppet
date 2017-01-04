@@ -1,0 +1,14 @@
+## IMPORTANT! PLEASE READ!
+## Make sure that there are NO trailing slashes (/) on the end of your
+## path name, as this will cause weird security errors that are very 
+## hard to track back here.  You've been warned.
+##
+
+##-- dump CGI env
+
+/cgi-bin
+    group administrators data_delivery
+
+/bmx
+    valid-user
+

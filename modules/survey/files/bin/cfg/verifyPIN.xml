@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- $Id: verifyPIN.xml,v 1.6 2006/02/15 16:54:37 mmaltchevski Exp $ -->
+
+<config>
+
+<!-- drive where the the password files are located -->
+<drive>d:</drive>
+
+<db>
+    <!-- location of the master data file on the above drive -->
+    <master_list>var/www/appname05/password/master_list.txt</master_list>
+</db>
+
+<!-- access code delimiter is default '\|' -->
+<delim>\|</delim>
+
+<!-- binary fie extension -->
+<binext>FIL</binext>
+
+<!-- flag to disable location check -->
+<disable_location_check>0</disable_location_check>
+
+<!-- flag to use a quick location check -->
+<quick_location_check>1</quick_location_check>
+
+<!-- HTML template to use with the absolute PATH -->
+<tmpl>d:/var/www/bin/verifyPIN.tmpl</tmpl>
+
+<!-- IVR template to use with the absolute PATH -->
+<tmplivr>d:/var/www/bin/verifyPINIVR.tmpl</tmplivr>
+
+</config>

@@ -1,0 +1,9 @@
+<configuration>
+  <ApplicationPool>
+    <name>appname04-.net-4.0</name>
+    <version>v4.0</version>
+    <identity>yourdomain\daeadminuser</identity>
+    <password>yourpassword</password>
+	<pipelineMode>Classic</pipelineMode>
+  </ApplicationPool>
+</configuration>

@@ -1,0 +1,17 @@
+<browsers>
+	<!-- See WebKitDetect.js -->
+    <browser id="WebKit" parentID="Mozilla">
+        <identification>
+          <userAgent match="AppleWebKit" />
+        </identification>
+
+        <capture>
+          <userAgent match="AppleWebKit/(?'layoutVersion'\d+)" />
+        </capture>
+
+        <capabilities>
+            <capability name="layoutEngine"                    value="WebKit" />
+            <capability name="layoutEngineVersion"             value="${layoutVersion}" />
+        </capabilities>
+    </browser>
+</browsers>

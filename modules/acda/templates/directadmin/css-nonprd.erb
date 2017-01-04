@@ -1,0 +1,57 @@
+##===== common appname03ives =====##
+
+BigIPCookieName <NA>
+BigIPCookieValue <NA>
+CSSRoot D:\mycompany\webpub\appname03-admin.mydomain.mycompany.com\
+GroupTag cssgroups:
+PwdTag password:
+LoginTag login:
+
+LoginURL https://<%= @isapi_login_url %>/login/
+SharedHTM ..\login\shared
+
+ReferingCookieName CSREFERER
+SessionsDir <%= @sessiondir %>\
+SIDCookieName <%= @sidcookiename %>
+UserTag cssuser:
+WWWSite mycompany
+
+##===== plugin specific appname03ives =====##
+
+ACCFile conf\aci.txt
+BadHeaders HTTP_CSSAUTHTIME HTTP_CSSDN HTTP_CSSGROUPS HTTP_CSSUSER
+DefDomain .mycompany.com
+DefServerName <%= scope.lookupvar('acda::appname03admin-config::defservername') %>
+SessionTableSize 200
+SessionTimeout 0
+SSLOkay 
+DomainIP 127.0.0.1,<%= scope.lookupvar('acda::appname03admin-config::ip_from_hiera') %>
+BasicAuthPassThrough /akamai 
+
+##===== login script specific appname03ives =====##
+
+AttemptsDir d:\css-sessions\attempts
+LDAPHost localhost:2389
+LDAPOrgName o=mycompany,c=us
+MaxNestedGroups 5
+SessionsShares <%= @sessiondir %>\
+SuspendTime 1800
+SuspendTries 10
+ADID CLIENTS\csaccountop
+ADPWD c0msc0r3
+ClientPwd c0msc0r3
+ADclientdomain clients.mycompany.com
+ADmydomaindomain mydomain.mycompany.com
+ADclientpath DC=clients,DC=mycompany,DC=com
+ADmydomainpath DC=mydomain,DC=mycompany,DC=com
+ClientDomain clients
+mydomainDomain yourcompany
+
+ADclientOpsMaster ppusacli01
+ADclientMaxLoginAttempts 25
+ADclientBadLoginAttemptFactor 4
+ADmydomainOpsMaster ppusadc01
+ADmydomainMaxLoginAttempts 5
+ADmydomainBadLoginAttemptFactor 2
+WarnOnClientLoginAttemptsRemaining 2
+WarnOnmydomainLoginAttemptsRemaining 1

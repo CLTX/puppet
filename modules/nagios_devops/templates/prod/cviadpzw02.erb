@@ -1,0 +1,82 @@
+define host{
+        use             	windows-server  ; Inherit default values from a template
+        host_name       	<%= hostname%>    ; The name we're giving to this host
+        alias           	<%= @fqdn%>       ; A longer name associated with the host
+        address         	<%= @getip%>     ; IP address of the host
+        hostgroups   		<%= machine_app%>
+        contacts  			platform, DevOps
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     NSC DevOps Client
+        servicegroups           Nagios
+        contacts                platform, DevOps
+		check_command           check_nt!SERVICESTATE!-d SHOWALL -l nsc-devops
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     CPU Load
+        servicegroups           CPU
+        contacts    			platform, DevOps
+        check_command           check_nt!CPULOAD!-l 20,90,100
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Puppet Agent Enabled
+        servicegroups           Puppet
+        notification_interval   86400
+        contacts                platform, DevOps
+        check_command           check_puppet_nagios!
+        }
+		
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     W3SVC
+        servicegroups           WebService
+        contacts                platform, DevOps, Platform-pagerduty
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l W3SVC
+        }
+
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     Nginx Service
+        servicegroups           WebSite
+        contacts                platform, DevOps
+        check_command           check_nt!SERVICESTATE!-d SHOWALL -l Nginx
+        }
+	
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     SSL Cert expire Nginx <%= @hostname%>
+        servicegroups           SSL
+        notification_interval   86400
+        contacts                platform, DevOps
+        check_command           check_http! -C 21 -I <%= @getip%>
+        }
+	
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     static.mycompany.com website verify port 443 - Nginx
+        servicegroups           WebSite
+        contacts                platform, DevOps, Platform-pagerduty
+        check_command           check_web_url! -H static.mycompany.com -I <%= @getip%> -S -u /nagios/nagios.ashx -s OK
+        }
+		
+define service{
+        use                     generic-service
+        host_name               <%= @hostname%>
+        service_description     static.mycompany.com website verify port 80 - Nginx
+        servicegroups           WebSite
+        contacts                platform, DevOps, Platform-pagerduty
+        check_command           check_web_url! -H static.mycompany.com -I <%= @getip%> -p 80 -u /nagios/nagios.ashx -s OK
+        }

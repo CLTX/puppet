@@ -1,0 +1,10 @@
+<META xmlns="http://www.w3.org/2002/01/P3Pv1">
+ <POLICY-REFERENCES>
+    <POLICY-REF about="/w3c/Policies.xml#Policy">
+      <INCLUDE>/*</INCLUDE>
+    </POLICY-REF>
+    <POLICY-REF about="/w3c/Policies.xml#Policy">
+       <COOKIE-INCLUDE name="*" value="*" domain="web.appname05-poll.com" path="*/"/>
+    </POLICY-REF>
+ </POLICY-REFERENCES>
+</META>

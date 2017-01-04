@@ -1,0 +1,55 @@
+##-- dump CGI env
+#/cgi-bin/env2.pli
+
+/myc
+	valid-user
+/cgi-bin
+    group administrators data_delivery
+/myc/AddFile.aspx
+	group mycompany
+/myc/DeleteFile.aspx
+	group mycompany
+/myc/EditFile.aspx
+	group mycompany
+/myc/EditGroup.aspx
+	group mycompany
+/myc/ManageGroups.aspx
+	group mycompany
+/myc/ThrowExceptions.aspx
+	group mycompany
+/myc/VerifyFilelists.aspx
+	group mycompany
+
+/myc/Admin
+	group mycompany
+/myc2
+	valid-user
+/myc2/AddFile.aspx
+	group mycompany
+/myc2/DeleteFile.aspx
+	group mycompany
+/myc2/EditFile.aspx
+	group mycompany
+/myc2/EditGroup.aspx
+	group mycompany
+/myc2/ManageGroups.aspx
+	group mycompany
+/myc2/ThrowExceptions.aspx
+	group mycompany
+/myc2/VerifyFilelists.aspx
+	group mycompany
+
+/ResponseRate
+	valid-user
+/PMXF
+	valid-user
+
+/slice
+	valid-user
+
+/welcome
+	valid-user
+
+/autologin
+        valid-user
+
